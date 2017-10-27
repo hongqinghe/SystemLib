@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">SystemModule</string>
+    <string name="full_test">全屏测试</string>
+    <string name="not_full_test">非全屏测试</string>
 </resources>

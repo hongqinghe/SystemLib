@@ -1,2 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="middlem.person.systemmodule" />
+    package="middlem.person.systemmodule">
+
+    <application>
+        <activity android:name=".BaseActivity" />
+        <activity android:name="middlem.person.systemmodule.SystemInputFullActivity"
+
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden"/>
+        <activity android:name="middlem.person.systemmodule.SystemInputActivity"
+
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden"/>
+    </application>
+
+</manifest>

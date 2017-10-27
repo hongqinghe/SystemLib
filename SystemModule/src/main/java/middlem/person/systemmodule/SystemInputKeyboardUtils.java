@@ -7,7 +7,8 @@ import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.FrameLayout;
 
-import org.greenrobot.eventbus.EventBus;
+import middlem.person.utilsmodule.SystemUtils;
+
 /***********************************************
  * <P> desc: 修复activity设置adjustResize无效的问题，并检测系统键盘的状态
  *            在activity的setContentView之后调用
@@ -69,23 +70,23 @@ public class SystemInputKeyboardUtils {
     public static  int getkeyHeight(Context context){
         return SystemUtils.getScreenHeight(context) / 3;
     }
-
-    /**
-     * 设置软键盘的监听回调
-     * @param context
-     * @param rootView
-     */
-    public static void setOnLayoutChangeListener(final Context context, View rootView){
-        rootView.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
-            @Override
-            public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
-                //现在认为只要控件将Activity向上推的高度超过了1/3屏幕高，就认为软键盘弹起
-                if (oldBottom != 0 && bottom != 0 && (oldBottom - bottom > getkeyHeight(context))) {
-                    EventBus.getDefault().post(new SystemKeyBoardChangeEvent(SystemKeyBoardChangeEvent.SYSTEM_INPUT_KEYBOARD_CHANGE,true));
-                } else if (oldBottom != 0 && bottom != 0 && (bottom - oldBottom > getkeyHeight(context))) {
-                    EventBus.getDefault().post(new SystemKeyBoardChangeEvent(SystemKeyBoardChangeEvent.SYSTEM_INPUT_KEYBOARD_CHANGE,false));
-                }
-            }
-        });
-    }
+//
+//    /**
+//     * 设置软键盘的监听回调
+//     * @param context
+//     * @param rootView
+//     */
+//    public static void setOnLayoutChangeListener(final Context context, View rootView){
+//        rootView.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
+//            @Override
+//            public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
+//                //现在认为只要控件将Activity向上推的高度超过了1/3屏幕高，就认为软键盘弹起
+//                if (oldBottom != 0 && bottom != 0 && (oldBottom - bottom > getkeyHeight(context))) {
+//                    EventBus.getDefault().post(new SystemKeyBoardChangeEvent(SystemKeyBoardChangeEvent.SYSTEM_INPUT_KEYBOARD_CHANGE,true));
+//                } else if (oldBottom != 0 && bottom != 0 && (bottom - oldBottom > getkeyHeight(context))) {
+//                    EventBus.getDefault().post(new SystemKeyBoardChangeEvent(SystemKeyBoardChangeEvent.SYSTEM_INPUT_KEYBOARD_CHANGE,false));
+//                }
+//            }
+//        });
+//    }
 }
