@@ -1,9 +1,9 @@
 package middlem.person.systemmodule;
 
+import android.content.Context;
 import android.content.Intent;
-import android.support.constraint.ConstraintLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.constraint.ConstraintLayout;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -27,15 +27,21 @@ public class SystemInputFullActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+//        设置activity设置全屏模式
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+       /*set it to be full screen*/
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_system_input_all);
+        SystemInputKeyboardUtils.assistActivity(this);
         initView();
     }
 
     private void initView() {
       ConstraintLayout root_view=findViewById(R.id.root_view);
-        Button button=findViewById(R.id.button);
-        button.setVisibility(View.GONE);
+        Button button= findViewById(R.id.button);
+        button.setVisibility(View.VISIBLE);
       root_view.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
           @Override
           public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
