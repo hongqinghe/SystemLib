@@ -9,7 +9,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/SystemModule" />
-            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/sample" />
             <option value="$PROJECT_DIR$/../UtilsLib/UtilsModule" />
           </set>
         </option>
