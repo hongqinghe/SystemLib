@@ -8,7 +8,7 @@ import android.view.View;
 import middlem.person.systemmodule.SystemInputFullActivity;
 
 public class MainActivity extends AppCompatActivity {
-  
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
